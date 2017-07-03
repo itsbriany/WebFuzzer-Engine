@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Build
+build
+cmake-build-debug
+
+# Vim
+tags
+.clang_complete
+*.swp

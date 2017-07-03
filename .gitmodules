@@ -1,0 +1,6 @@
+[submodule "ThirdParty/googletest"]
+	path = ThirdParty/googletest
+	url = git@github.com:google/googletest.git
+[submodule "ThirdParty/cpp-netlib"]
+	path = ThirdParty/cpp-netlib
+	url = git@github.com:cpp-netlib/cpp-netlib.git
