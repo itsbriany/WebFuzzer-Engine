@@ -1,4 +1,7 @@
+#include <boost/log/trivial.hpp>
 #include "HttpProxy.h"
+
+const std::string cHttpProxy = "[HttpProxy]";
 
 HttpProxy::HttpProxy()
   : httpClient_(),
@@ -9,11 +12,12 @@ HttpProxy::HttpProxy()
 void
 HttpProxy::HttpProxy::HandleHttpRequest(const boost::network::http::server<HttpServer>::request& request)
 {
-  std::cout << "Handled an http request!" << std::endl;
+  BOOST_LOG_TRIVIAL(info) << cHttpProxy << ": Handled an http request!";
 }
 
 void
 HttpProxy::Run()
 {
+  BOOST_LOG_TRIVIAL(debug) << cHttpProxy << ": Running...";
   httpServer_.Run();
 }

@@ -1,8 +1,11 @@
+#include <boost/log/trivial.hpp>
 #include <iostream>
 #include <cstdint>
 #include <sstream>
 
 #include "HttpServer.h"
+
+const std::string cHttpServer = "[HttpServer]";
 
 HttpServer::CallbackInterface::CallbackInterface()
 {
@@ -23,9 +26,8 @@ HttpServer::Run()
   try {
     boost::network::http::server<HttpServer>::options options(*this);
     boost::network::http::server<HttpServer> server(options.address("0.0.0.0").port("8080"));
-    std::cout << "About to run" << std::endl;
+    BOOST_LOG_TRIVIAL(debug) << cHttpServer << ": Running...";
     server.run();
-    std::cout << "Running" << std::endl;
   }
   catch (std::exception &error) {
     std::cerr << error.what() << std::endl;
