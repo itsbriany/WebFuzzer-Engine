@@ -12,7 +12,8 @@ HttpProxy::HttpProxy()
 void
 HttpProxy::HttpProxy::HandleHttpRequest(const boost::network::http::server<HttpServer>::request& request)
 {
-  BOOST_LOG_TRIVIAL(info) << cHttpProxy << ": Handled an http request!";
+  BOOST_LOG_TRIVIAL(info) << cHttpProxy << ": Got an HTTP Request[" << request.destination << ']';
+  httpClient_.SendRequest(request);
 }
 
 void
